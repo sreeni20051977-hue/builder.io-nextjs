@@ -262,6 +262,17 @@
   color: #FFF;
 }
 
+/* Tab Title */
+.tabTitle {
+  color: #545F71;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.56px;
+  margin-bottom: 24px;
+}
+
 /* Table */
 .tableContainer {
   width: 901px;
