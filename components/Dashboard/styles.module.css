@@ -262,6 +262,17 @@
   color: #FFF;
 }
 
+/* Tab Title */
+.tabTitle {
+  color: #545F71;
+  font-family: Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: -0.56px;
+  margin-bottom: 24px;
+}
+
 /* Table */
 .tableContainer {
   width: 901px;
@@ -322,6 +333,30 @@
   font-weight: 400;
   line-height: 22px;
   letter-spacing: -0.32px;
+}
+
+.statusCell {
+  text-align: center;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+}
+
+.statusActive {
+  background: #D1F4E0;
+  color: #0D6741;
+}
+
+.statusInactive {
+  background: #FEE4E4;
+  color: #B42318;
 }
 
 /* Responsive adjustments */
