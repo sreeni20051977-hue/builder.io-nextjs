@@ -109,51 +109,90 @@ function Dashboard({ balance = "$ 1,893.44" }: DashboardProps) {
 
       {/* Main Content */}
       <main className={styles.mainContent}>
-        {/* Account Summary Cards */}
-        <div className={styles.accountSummaryCards}>
-          <div className={styles.accountCard}>
-            <div className={styles.balanceAmount}>{balance}</div>
-            <button className={`${styles.btn} ${styles.btnSecondary}`}>
-              <span className={styles.btnLabel}>Transfer</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 4V9H4.58152M19.9381 11C19.446 7.05369 16.0796 4 12 4C8.64262 4 5.76829 6.06817 4.58152 9M4.58152 9H9M20 20V15H19.4185M19.4185 15C18.2317 17.9318 15.3574 20 12 20C7.92038 20 4.55399 16.9463 4.06189 13M19.4185 15H15" stroke="#545F71" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
-          <div className={styles.accountCard}>
-            <div className={styles.balanceAmount}>{balance}</div>
-            <button className={`${styles.btn} ${styles.btnPrimary}`}>
-              <span className={styles.btnLabel}>Add money</span>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 6V12M12 12V18M12 12H18M12 12L6 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </button>
-          </div>
-        </div>
+        {activeTab === "dashboard" ? (
+          <>
+            {/* Account Summary Cards */}
+            <div className={styles.accountSummaryCards}>
+              <div className={styles.accountCard}>
+                <div className={styles.balanceAmount}>{balance}</div>
+                <button className={`${styles.btn} ${styles.btnSecondary}`}>
+                  <span className={styles.btnLabel}>Transfer</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 4V9H4.58152M19.9381 11C19.446 7.05369 16.0796 4 12 4C8.64262 4 5.76829 6.06817 4.58152 9M4.58152 9H9M20 20V15H19.4185M19.4185 15C18.2317 17.9318 15.3574 20 12 20C7.92038 20 4.55399 16.9463 4.06189 13M19.4185 15H15" stroke="#545F71" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+              <div className={styles.accountCard}>
+                <div className={styles.balanceAmount}>{balance}</div>
+                <button className={`${styles.btn} ${styles.btnPrimary}`}>
+                  <span className={styles.btnLabel}>Add money</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 6V12M12 12V18M12 12H18M12 12L6 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
 
-        {/* Table */}
-        <div className={styles.tableContainer}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th className={styles.tableHeader}>#</th>
-                <th className={styles.tableHeader}>Name</th>
-                <th className={styles.tableHeader}>Date of Birth</th>
-                <th className={styles.tableHeader}>Job Title</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tableData.map((row) => (
-                <tr key={row.id} className={styles.tableRow}>
-                  <td className={styles.tableCell}>{row.id}</td>
-                  <td className={styles.tableCell}>{row.name}</td>
-                  <td className={styles.tableCell}>{row.dateOfBirth}</td>
-                  <td className={styles.tableCell}>{row.jobTitle}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            {/* Dashboard Table */}
+            <div className={styles.tableContainer}>
+              <table className={styles.table}>
+                <thead>
+                  <tr>
+                    <th className={styles.tableHeader}>#</th>
+                    <th className={styles.tableHeader}>Name</th>
+                    <th className={styles.tableHeader}>Date of Birth</th>
+                    <th className={styles.tableHeader}>Job Title</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tableData.map((row) => (
+                    <tr key={row.id} className={styles.tableRow}>
+                      <td className={styles.tableCell}>{row.id}</td>
+                      <td className={styles.tableCell}>{row.name}</td>
+                      <td className={styles.tableCell}>{row.dateOfBirth}</td>
+                      <td className={styles.tableCell}>{row.jobTitle}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        ) : (
+          <>
+            {/* Users Tab Title */}
+            <div className={styles.tabTitle}>Users</div>
+
+            {/* Users Table */}
+            <div className={styles.tableContainer}>
+              <table className={styles.table}>
+                <thead>
+                  <tr>
+                    <th className={styles.tableHeader}>#</th>
+                    <th className={styles.tableHeader}>Name</th>
+                    <th className={styles.tableHeader}>Email</th>
+                    <th className={styles.tableHeader}>Status</th>
+                    <th className={styles.tableHeader}>Join Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {usersData.map((user) => (
+                    <tr key={user.id} className={styles.tableRow}>
+                      <td className={styles.tableCell}>{user.id}</td>
+                      <td className={styles.tableCell}>{user.name}</td>
+                      <td className={styles.tableCell}>{user.email}</td>
+                      <td className={`${styles.tableCell} ${styles.statusCell}`}>
+                        <span className={`${styles.statusBadge} ${user.status === "Active" ? styles.statusActive : styles.statusInactive}`}>
+                          {user.status}
+                        </span>
+                      </td>
+                      <td className={styles.tableCell}>{user.joinDate}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
       </main>
     </div>
   );
