@@ -63,7 +63,10 @@ function Dashboard({ balance = "$ 1,893.44" }: DashboardProps) {
       {/* Side Navigation */}
       <aside className={styles.sideNav}>
         <div className={styles.navItems}>
-          <div className={`${styles.navItem} ${styles.navItemActive}`}>
+          <div
+            className={`${styles.navItem} ${activeTab === "dashboard" ? styles.navItemActive : ""}`}
+            onClick={() => setActiveTab("dashboard")}
+          >
             <svg className={styles.navIcon} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M19 11H5M19 11C20.1046 11 21 11.8954 21 13V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V13C3 11.8954 3.89543 11 5 11M19 11V9C19 7.89543 18.1046 7 17 7M5 11V9C5 7.89543 5.89543 7 7 7M7 7V5C7 3.89543 7.89543 3 9 3H15C16.1046 3 17 3.89543 17 5V7M7 7H17" stroke="#545F71" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
@@ -81,7 +84,10 @@ function Dashboard({ balance = "$ 1,893.44" }: DashboardProps) {
               <path d="M7.5 4.16666L13.3333 9.99999L7.5 15.8333" stroke="#9BA5B7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
-          <div className={styles.navItem}>
+          <div
+            className={`${styles.navItem} ${activeTab === "users" ? styles.navItemActive : ""}`}
+            onClick={() => setActiveTab("users")}
+          >
             <svg className={styles.navIcon} width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 4.35418C12.7329 3.52375 13.8053 3 15 3C17.2091 3 19 4.79086 19 7C19 9.20914 17.2091 11 15 11C13.8053 11 12.7329 10.4762 12 9.64582M15 21H3V20C3 16.6863 5.68629 14 9 14C12.3137 14 15 16.6863 15 20V21ZM15 21H21V20C21 16.6863 18.3137 14 15 14C13.9071 14 12.8825 14.2922 12 14.8027M13 7C13 9.20914 11.2091 11 9 11C6.79086 11 5 9.20914 5 7C5 4.79086 6.79086 3 9 3C11.2091 3 13 4.79086 13 7Z" stroke="#545F71" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
