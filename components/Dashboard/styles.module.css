@@ -335,6 +335,30 @@
   letter-spacing: -0.32px;
 }
 
+.statusCell {
+  text-align: center;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: -0.28px;
+}
+
+.statusActive {
+  background: #D1F4E0;
+  color: #0D6741;
+}
+
+.statusInactive {
+  background: #FEE4E4;
+  color: #B42318;
+}
+
 /* Responsive adjustments */
 @media (max-width: 1280px) {
   .mainContent {
